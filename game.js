@@ -60,5 +60,3 @@ function game() {
         console.log("Tie!\nTry again!");
     }
 }
-
-game();

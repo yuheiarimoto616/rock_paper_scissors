@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #EEE9DA;
+}
+
+h1 {
+    font-size: 42px;
+    text-align: center;
+    background-color: #6096B4;
+    color: #EEE9DA;
+    padding: 16px;
+    border-bottom: solid #BDCDD6 8px;
+}
+
+h2 {
+    font-size: 36px;
+    color: #39647b;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 24px;
+    color: #39647b;
+    font-weight: bold;
+}
+
+.scoreBoard {
+    padding: 32px;
+    text-align: center;
+    border-bottom: dotted #BDCDD6 8px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-top: 30px;
+}
+
+#playerScore,
+#computerScore {
+    border: solid #6096B4 8px;
+    border-radius: 20px;
+    width: 150px;
+    height: 100px;
+    background-color: #BDCDD6;
+    margin-top: 10px;
+}
+
+.computerSelection {
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+.computerSelection div {
+    width: 300px;
+    height: 300px;
+    background-color: #BDCDD6;
+    border-radius: 50%;
+}
+
+.info {
+    font-size: 36px;
+    color: #39647b;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 50px;
+}
+
+.playerSelection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.playerSelection img {
+    width: 150px;
+    height: auto;
+}
+
+footer {
+    background-color:  #6096B4;
+    text-align: center;
+    padding:20px;
+    margin-top: 80px;
+    border-top: solid #BDCDD6 6px;
+}
+
+a {
+    text-decoration: none;
+    background-color: #6096B4;
+    color: #EEE9DA;
+}

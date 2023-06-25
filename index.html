@@ -4,9 +4,47 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
         <script src="game.js" defer></script>
         <title>Rock Paper Scissors</title>
     </head>
     <body>
+        <h1>Rock Paper Scissors</h1>
+        <div class="scoreBoard">
+            <h2>Score Board</h2>
+            <div class="score">
+                <div class="player">
+                    <span class="label">Player</span>
+                    <div id="playerScore"></div>
+                </div>
+                <span class="label">VS</span>
+                <div class="computer">
+                    <span class="label">Computer</span>
+                    <div id="computerScore"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="computerSelection">
+            <div></div>
+        </div>
+
+        <p class="info">First to 5 points win<br>What are you going to play?</p>
+
+        <div class="playerSelection">
+            <div class="rock">
+                <img src="images/rock.png" alt="Rock">
+            </div>
+            <div class="paper">
+                <img src="images/paper.png" alt="Paper">
+            </div>
+            <div class="scissors">
+                <img src="images/scissors.png" alt="Scissors">
+            </div>
+        </div>
+
+        <footer>
+            <a href="https://www.flaticon.com/free-icons/rock-paper-scissors" title="rock paper scissors icons">Rock paper scissors icons created by Freepik - Flaticon</a>
+        </footer>
     </body>
 </html>
