@@ -36,6 +36,57 @@ function rps(playerSelection, computerSelection) {
     }
 }
 
+function displayComputerSelection(computerSelection) {
+    let img = document.createElement('img');
+    img.style.cssText = 'background-color: #BDCDD6; width: 150px; height: auto';
+    img.setAttribute('src', `images/${computerSelection}.png`);
+    img.setAttribute('alt', computerSelection);
+    let computerSelectionDiv = document.querySelector('.computerSelection > div');
+    if (computerSelectionDiv.hasChildNodes()) {
+        computerSelectionDiv.removeChild(computerSelectionDiv.firstChild);
+    }
+    computerSelectionDiv.appendChild(img);
+}
+
+function updateScoreAndInfo(result) {
+    let info = document.querySelector('.info');
+    info.textContent = result;
+
+    let score;
+    if (result.includes("win")) {
+        score = document.getElementById("playerScore");
+    }  else if (result.includes("lose")) {
+        score = document.getElementById("computerScore");
+    }
+
+    if (score != null) {
+        score.textContent = Number.parseInt(score.textContent) + 1;
+    }
+
+    return score;
+}
+
+function endGame(score) {
+    let info = document.querySelector('.info');
+    if (score.id == "playerScore") {
+        info.textContent = "You got 5 points! You Won!";
+    } else {
+        info.textContent = "Computer reached 5 points! You Lost!";
+    }
+
+    let selections = document.querySelectorAll('.playerSelection div');
+
+    selections.forEach(selection => {
+        selection.removeEventListener('click', playRound);
+    })
+
+    let btn = document.createElement('button');
+    btn.textContent = "Play Again";
+    btn.style.cssText = 'background-color: #6096B4; color: #EEE9DA; width: 140px; height: 70px; border: solid #BDCDD6 5px; border-radius: 12px; font-size: 18px;'
+    btn.addEventListener('click', initializeGame);
+    document.querySelector(".infoContainer").appendChild(btn);
+}
+
 function playRound(e) {
     let selected = document.querySelector('.selected');
     if (selected) {
@@ -47,47 +98,14 @@ function playRound(e) {
 
     let computerSelection = getComputerChoice();
 
-    let img = document.createElement('img');
-    img.style.cssText = 'background-color: #BDCDD6; width: 150px; height: auto';
-    img.setAttribute('src', `images/${computerSelection}.png`);
-    img.setAttribute('alt', computerSelection);
-    let computerSelectionDiv = document.querySelector('.computerSelection > div');
-    if (computerSelectionDiv.hasChildNodes()) {
-        computerSelectionDiv.removeChild(computerSelectionDiv.firstChild);
-    }
-    computerSelectionDiv.appendChild(img);
+    displayComputerSelection(computerSelection);
 
     let result = rps(playerSelection, computerSelection);
 
-    let info = document.querySelector('.info');
-    info.textContent = result;
+    let score = updateScoreAndInfo(result);
 
-    let score;
-    if (result.includes("win")) {
-        score = document.getElementById("playerScore");
-    }  else if (result.includes("lose")) {
-        score = document.getElementById("computerScore");
-    }
-    score.textContent = Number.parseInt(score.textContent) + 1;
-
-    if (score.textContent == "5") {
-        if (score.id == "playerScore") {
-            info.textContent = "You got 5 points! You Won!";
-        } else {
-            info.textContent = "Computer reached 5 points! You Lost!";
-        }
-
-        let selections = document.querySelectorAll('.playerSelection div');
-
-        selections.forEach(selection => {
-            selection.removeEventListener('click', playRound);
-        })
-
-        let btn = document.createElement('button');
-        btn.textContent = "Play Again";
-        btn.style.cssText = 'background-color: #6096B4; color: #EEE9DA; width: 140px; height: 70px; border: solid #BDCDD6 5px; border-radius: 12px; font-size: 18px;'
-        btn.addEventListener('click', initializeGame);
-        document.querySelector(".infoContainer").appendChild(btn);
+    if (score != null && score.textContent == "5") {
+        endGame(score);
     }
 }
 
