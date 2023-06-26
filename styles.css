@@ -50,6 +50,11 @@ h2 {
     height: 100px;
     background-color: #BDCDD6;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6096B4;
+    font-size: 46px;
 }
 
 .computerSelection {
@@ -64,6 +69,18 @@ h2 {
     height: 300px;
     background-color: #BDCDD6;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
 .info {
@@ -71,7 +88,6 @@ h2 {
     color: #39647b;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 40px;
     line-height: 50px;
 }
 
@@ -79,7 +95,22 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px;
+}
+
+.selected {
+    border: solid #6096B4 12px;
+}
+
+.playerSelection div {
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .playerSelection img {
